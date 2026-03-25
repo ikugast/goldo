@@ -38,11 +38,15 @@ jobs:
 
       - name: Copy latest simulation data to build
         run: |
-          if [ -f "simulation_output.json" ]; then
-            cp simulation_output.json frontend/dist/
+          # 退回仓库根目录去复制数据文件
+          if [ -f "../simulation_output.json" ]; then
+            cp ../simulation_output.json dist/
           else
-            echo "No simulation_output.json found at root, skipping copy."
+            # 如果根目录没有，试着创建一个空的，防止网页崩溃
+            echo '{"history": [], "models": {}}' > dist/simulation_output.json
+            echo "No simulation_output.json found, created an empty one."
           fi          
+        working-directory: frontend    
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

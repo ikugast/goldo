@@ -35,6 +35,6 @@ jobs:
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add engine_state.json simulation_output.json
-          git commit -m "Auto: Update simulation results at $(date)" || echo "No changes to commit"
+          git add engine_state.json simulation_output.json || true
+          git diff-index --quiet HEAD || git commit -m "Auto: Update simulation results at $(date)"
           git push

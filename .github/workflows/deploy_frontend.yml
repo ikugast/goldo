@@ -29,8 +29,8 @@ jobs:
       - name: Install dependencies
         working-directory: frontend
         run: |
-        npm install -g pnpm@latest --force
-        pnpm install --no-frozen-lockfile          
+          npm install -g pnpm@latest --force
+          pnpm install --no-frozen-lockfile           
 
       - name: Build
         working-directory: frontend

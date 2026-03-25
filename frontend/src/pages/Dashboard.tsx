@@ -34,7 +34,7 @@ type RealtimeMetrics = {
 // GitHub Pages 模式：直接读取仓库里的 JSON 数据文件
 // 部署后，将 GITHUB_RAW_URL 改为你自己仓库的 Raw 地址，例如：
 // https://raw.githubusercontent.com/你的用户名/gold-bean-sprout/main/simulation_output.json
-const DATA_URL = (import.meta as any).env?.VITE_DATA_URL || 'simulation_output.json';
+const DATA_URL = '/goldo/simulation_output.json';
 const BASELINE_DATE = new Date('2026-03-25');
 
 function Dashboard() {

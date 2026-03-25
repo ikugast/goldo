@@ -1,30 +1,14 @@
-import path from "path";
-import react from "@vitejs/plugin-react";
-import { defineConfig } from "vite";
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import path from "path"
 
+// https://vitejs.dev/config/
 export default defineConfig({
-  base: './',
-  plugins: [
-    CodeInspectorPlugin({
-      bundler: "vite",
-    }),
-    react(),
-    // IMPORTANT: DO NOT REMOVE THIS!
-  ],
-  server: {
-    host: "0.0.0.0",
-    port: 5174,
-    allowedHosts: true,
-    proxy: {
-      "/api": {
-        target: "http://127.0.0.1:5000",
-        changeOrigin: true,
-      },
-    },
-  },
+  plugins: [react()],
+  base: '/goldo/',
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
-});
+})

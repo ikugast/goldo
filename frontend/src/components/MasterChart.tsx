@@ -74,7 +74,19 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
               fontFamily: 'Inter'
             }} 
           />
-          <Legend iconType="circle" wrapperStyle={{ paddingTop: '20px', fontSize: '10px', fontFamily: 'Inter' }} />
+          <Legend 
+            iconType="circle" 
+            iconSize={6} 
+            wrapperStyle={{ 
+              paddingTop: '20px', 
+              fontSize: '10px', 
+              fontFamily: 'Inter',
+              width: '100%',
+              display: 'flex',
+              justifyContent: 'center',
+              gap: '6px'
+            }} 
+          />
           <Line 
             type="monotone" 
             dataKey="modelA" 

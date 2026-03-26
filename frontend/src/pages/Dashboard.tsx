@@ -147,10 +147,10 @@ function Dashboard() {
       setChartData(formattedChartData);
 
       const displayNames: Record<string, string> = {
-        'Model A': '模型 A',
-        'Model B': '模型 B',
-        'Model C': '模型 C',
-        'Model D': '模型 D',
+        'Model A': 'seed 2.0',
+        'Model B': 'dpsk 3.2',
+        'Model C': 'seed 2.0',
+        'Model D': 'dpsk 3.2',
       };
 
       const formattedModels: ModelView[] = modelKeys.map((key) => {

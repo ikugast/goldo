@@ -9,24 +9,35 @@ import {
   ResponsiveContainer,
   Legend
 } from 'recharts';
+
 interface MasterChartProps {
   data: any[];
 }
+
 const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
   const startLabel = data.length > 0 ? data[0].name : '3/24';
   const endLabel = data.length > 0 ? data[data.length - 1].name : '--';
   const year = '2026';
-  // 只显示最后一个日期刻度
-  const xTicks = data.length > 0 ? [data[data.length - 1].name] : undefined;
+
+  // 【核心修复】：如果数据点太少（比如刚开跑只有1-2天），图表默认会居中。
+  // 我们强行往数组后面塞几个“空天数”的占位符，把当前真实的净值点“挤”到最左侧去，还原从左往右生长的视觉效果。
+  const displayData = [...data];
+  while (displayData.length > 0 && displayData.length < 7) {
+    displayData.push({ name: `_empty_${displayData.length}` }); // 隐形占位点
+  }
+
+  // 刻度只显示真实的日期，隐藏掉我们造的占位点
+  const xTicks = data.map(d => d.name);
+
   const formatYAxisTick = (value: number) => {
     // 按需求对特定刻度做“显示值重映射”
     if (Math.abs(value - 0.95) < 1e-6) return '0.5';
     if (Math.abs(value - 1.05) < 1e-6) return '1.25';
     if (Math.abs(value - 1.1) < 1e-6) return '1.5';
-    // 其他刻度保持原样（去掉多余小数）
     const s = value.toString();
     return s;
   };
+
   return (
     <div className="quant-card p-6 h-[300px] sm:h-[400px] md:h-[500px]">
       <div className="flex justify-between items-center mb-6">
@@ -36,14 +47,13 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
         </div>
       </div>
       <ResponsiveContainer width="100%" height="100%">
-        <LineChart data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <LineChart data={displayData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
           <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F0F0F0" />
           <XAxis 
             dataKey="name" 
             axisLine={false} 
             tickLine={false} 
             tick={{ fontSize: 10, fill: '#A0A4A8' }}
-            reversed
             ticks={xTicks}
             padding={{ left: 0, right: 0 }}
           />
@@ -56,6 +66,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             tickFormatter={formatYAxisTick}
           />
           <Tooltip 
+            filterNull={true}
             contentStyle={{ 
               borderRadius: '12px', 
               border: 'none', 
@@ -72,6 +83,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             strokeWidth={3} 
             dot={false} 
             activeDot={{ r: 4 }} 
+            connectNulls={false}
           />
           <Line 
             type="monotone" 
@@ -81,6 +93,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             strokeWidth={3} 
             dot={false} 
             activeDot={{ r: 4 }} 
+            connectNulls={false}
           />
           <Line 
             type="monotone" 
@@ -90,6 +103,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             strokeWidth={3} 
             dot={false} 
             activeDot={{ r: 4 }} 
+            connectNulls={false}
           />
           <Line 
             type="monotone" 
@@ -99,10 +113,12 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             strokeWidth={3} 
             dot={false} 
             activeDot={{ r: 4 }} 
+            connectNulls={false}
           />
         </LineChart>
       </ResponsiveContainer>
     </div>
   );
 };
+
 export default MasterChart;

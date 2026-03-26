@@ -35,6 +35,7 @@ interface ModelCardProps {
   holdings: Holding[];
   recentTrades: Trade[];
   aiReason: string;
+  onRealtimeUpdate?: any;
 }
 
 const ModelCard: React.FC<ModelCardProps> = ({

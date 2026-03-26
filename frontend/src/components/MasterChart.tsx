@@ -55,7 +55,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelA" 
-            name="模型 A" 
+            name="seed 2.0（技术流）" 
             stroke="#8A4FFF" 
             strokeWidth={3} 
             dot={false} 
@@ -64,7 +64,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelB" 
-            name="模型 B" 
+            name="dpsk 3.2（技术流）" 
             stroke="#FF4D4F" 
             strokeWidth={3} 
             dot={false} 
@@ -73,7 +73,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelC" 
-            name="模型 C" 
+            name="seed 2.0（龙头战法）" 
             stroke="#00B894" 
             strokeWidth={3} 
             dot={false} 
@@ -82,7 +82,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelD" 
-            name="模型 D" 
+            name="dpsk 3.2（龙头战法）" 
             stroke="#1890FF" 
             strokeWidth={3} 
             dot={false} 

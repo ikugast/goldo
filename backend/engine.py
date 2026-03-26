@@ -120,12 +120,12 @@ class MirrorDecisionEngine:
             'Model D': ModelWrapper('Model D', 'LeadingDragon', os.environ.get("ARK_ENDPOINT_DEEPSEEK", "ep-20260324154510-xbb64")),
         }
         
-        # Ensure we have an initial output file for frontend
-        self.export_frontend_data()
-
         # 静态股票名称映射（兜底，防止 daily_market_data 为空时展示代码）
         self.static_name_map = {s["code"]: s["name"] for s in CORE_STOCK_POOL_98 + HOT_SPOT_POOL}
         self.daily_market_data = {} # Shared market state at t
+
+        # Ensure we have an initial output file for frontend
+        self.export_frontend_data()
     
     def save_state(self):
         """Persist engine/simulator state to file."""

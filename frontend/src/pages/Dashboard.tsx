@@ -301,7 +301,7 @@ function Dashboard() {
         <section>
           <StrategyZone
             title="技术流"
-            description="聚焦算力核心资产，AI结合趋势动量进行模拟交易。"
+            description="聚焦算力核心资产，AI结合趋势动量进行模拟交易"
             models={[
               modelsData.find((m) => m.id === 'Model A') as ModelView,
               modelsData.find((m) => m.id === 'Model B') as ModelView,

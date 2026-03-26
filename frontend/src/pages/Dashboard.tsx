@@ -258,7 +258,7 @@ function Dashboard() {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           <div className="flex items-center space-x-4">
             <img
-              src="/logo.png"
+              src="/goldo/logo.png"
               className="w-12 h-12 rounded-full border-2 border-purple-100 shadow-sm"
               alt="logo"
             />

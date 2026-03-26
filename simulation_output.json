@@ -1,0 +1,378 @@
+{
+  "models": {
+    "Model A": {
+      "net_value_curve": [
+        1.0
+      ],
+      "cash": 427987.0,
+      "initial_cash": 1000000.0,
+      "holdings": [
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "count": 1700,
+          "avgCost": 117.12,
+          "currentPrice": 117.12,
+          "profitRate": 0.0,
+          "dailyChangePct": 10.0,
+          "reason": "大幅上涨突破前期价位，属热点标的，动量强劲"
+        },
+        {
+          "name": "罗博特科",
+          "code": "300757.SZ",
+          "count": 400,
+          "avgCost": 387.13,
+          "currentPrice": 387.13,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.0,
+          "reason": "放量上行，热点标的，趋势明确向好"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "count": 300,
+          "avgCost": 335.17,
+          "currentPrice": 335.17,
+          "profitRate": 0.0,
+          "dailyChangePct": 5.37,
+          "reason": "突破前高，动量充足，热点标的上行确定性高"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "count": 1300,
+          "avgCost": 59.11,
+          "currentPrice": 59.11,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.5,
+          "reason": "价量齐升，热点标的，短期上行趋势明确"
+        },
+        {
+          "name": "宁德时代",
+          "code": "300750.SZ",
+          "count": 100,
+          "avgCost": 406.63,
+          "currentPrice": 406.63,
+          "profitRate": 0.0,
+          "dailyChangePct": 2.22,
+          "reason": "价格突破近期价位，龙头标的上行趋势明确"
+        }
+      ],
+      "transactions": [
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "amount": 1700,
+          "direction": "buy",
+          "price": 117.12,
+          "time": "03:30",
+          "logic": "大幅上涨突破前期价位，属热点标的，动量强劲"
+        },
+        {
+          "name": "罗博特科",
+          "code": "300757.SZ",
+          "amount": 400,
+          "direction": "buy",
+          "price": 387.13,
+          "time": "03:30",
+          "logic": "放量上行，热点标的，趋势明确向好"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "amount": 300,
+          "direction": "buy",
+          "price": 335.17,
+          "time": "03:30",
+          "logic": "突破前高，动量充足，热点标的上行确定性高"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "amount": 1300,
+          "direction": "buy",
+          "price": 59.11,
+          "time": "03:30",
+          "logic": "价量齐升，热点标的，短期上行趋势明确"
+        },
+        {
+          "name": "宁德时代",
+          "code": "300750.SZ",
+          "amount": 100,
+          "direction": "buy",
+          "price": 406.63,
+          "time": "03:30",
+          "logic": "价格突破近期价位，龙头标的上行趋势明确"
+        }
+      ],
+      "strategy_type": "TechnicalFlow"
+    },
+    "Model B": {
+      "net_value_curve": [
+        1.0
+      ],
+      "cash": 599594.0,
+      "initial_cash": 1000000.0,
+      "holdings": [
+        {
+          "name": "海博思创",
+          "code": "688411.SH",
+          "count": 400,
+          "avgCost": 290.15,
+          "currentPrice": 290.15,
+          "profitRate": 0.0,
+          "dailyChangePct": 3.55,
+          "reason": "价格突破前高，动量增强，技术形态显示强劲上涨趋势。"
+        },
+        {
+          "name": "宁德时代",
+          "code": "300750.SZ",
+          "count": 200,
+          "avgCost": 406.63,
+          "currentPrice": 406.63,
+          "profitRate": 0.0,
+          "dailyChangePct": 2.22,
+          "reason": "价格突破前高，动量显著增强，技术形态良好，趋势明确。"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "count": 200,
+          "avgCost": 335.17,
+          "currentPrice": 335.17,
+          "profitRate": 0.0,
+          "dailyChangePct": 5.37,
+          "reason": "价格突破前高，动量增强，且为市场热点标的，趋势强劲。"
+        },
+        {
+          "name": "罗博特科",
+          "code": "300757.SZ",
+          "count": 200,
+          "avgCost": 387.13,
+          "currentPrice": 387.13,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.0,
+          "reason": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+        },
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "count": 500,
+          "avgCost": 117.12,
+          "currentPrice": 117.12,
+          "profitRate": 0.0,
+          "dailyChangePct": 10.0,
+          "reason": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+        }
+      ],
+      "transactions": [
+        {
+          "name": "海博思创",
+          "code": "688411.SH",
+          "amount": 400,
+          "direction": "buy",
+          "price": 290.15,
+          "time": "03:30",
+          "logic": "价格突破前高，动量增强，技术形态显示强劲上涨趋势。"
+        },
+        {
+          "name": "宁德时代",
+          "code": "300750.SZ",
+          "amount": 200,
+          "direction": "buy",
+          "price": 406.63,
+          "time": "03:30",
+          "logic": "价格突破前高，动量显著增强，技术形态良好，趋势明确。"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "amount": 200,
+          "direction": "buy",
+          "price": 335.17,
+          "time": "03:30",
+          "logic": "价格突破前高，动量增强，且为市场热点标的，趋势强劲。"
+        },
+        {
+          "name": "罗博特科",
+          "code": "300757.SZ",
+          "amount": 200,
+          "direction": "buy",
+          "price": 387.13,
+          "time": "03:30",
+          "logic": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+        },
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "amount": 500,
+          "direction": "buy",
+          "price": 117.12,
+          "time": "03:30",
+          "logic": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+        }
+      ],
+      "strategy_type": "TechnicalFlow"
+    },
+    "Model C": {
+      "net_value_curve": [
+        1.0
+      ],
+      "cash": 357560.0,
+      "initial_cash": 1000000.0,
+      "holdings": [
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "count": 3400,
+          "avgCost": 117.12,
+          "currentPrice": 117.12,
+          "profitRate": 0.0,
+          "dailyChangePct": 10.0,
+          "reason": "热点标的，涨幅超10%，强势异动，短线爆发力强"
+        },
+        {
+          "name": "罗博特科",
+          "code": "300757.SZ",
+          "count": 300,
+          "avgCost": 387.13,
+          "currentPrice": 387.13,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.0,
+          "reason": "热点标的，涨幅近6%，量价配合良好，走势强劲"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "count": 1600,
+          "avgCost": 59.11,
+          "currentPrice": 59.11,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.5,
+          "reason": "科创热点标的，涨幅超6%，承接有力，上行空间大"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "count": 100,
+          "avgCost": 335.17,
+          "currentPrice": 335.17,
+          "profitRate": 0.0,
+          "dailyChangePct": 5.37,
+          "reason": "热点标的，涨幅超5%，走势坚挺，适合短线布局"
+        }
+      ],
+      "transactions": [
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "amount": 3400,
+          "direction": "buy",
+          "price": 117.12,
+          "time": "03:30",
+          "logic": "热点标的，涨幅超10%，强势异动，短线爆发力强"
+        },
+        {
+          "name": "罗博特科",
+          "code": "300757.SZ",
+          "amount": 300,
+          "direction": "buy",
+          "price": 387.13,
+          "time": "03:30",
+          "logic": "热点标的，涨幅近6%，量价配合良好，走势强劲"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "amount": 1600,
+          "direction": "buy",
+          "price": 59.11,
+          "time": "03:30",
+          "logic": "科创热点标的，涨幅超6%，承接有力，上行空间大"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "amount": 100,
+          "direction": "buy",
+          "price": 335.17,
+          "time": "03:30",
+          "logic": "热点标的，涨幅超5%，走势坚挺，适合短线布局"
+        }
+      ],
+      "strategy_type": "LeadingDragon"
+    },
+    "Model D": {
+      "net_value_curve": [
+        1.0
+      ],
+      "cash": 5989.0,
+      "initial_cash": 1000000.0,
+      "holdings": [
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "count": 8100,
+          "avgCost": 117.12,
+          "currentPrice": 117.12,
+          "profitRate": 0.0,
+          "dailyChangePct": 10.0,
+          "reason": "唯一大幅上涨热点股，放量突破，技术形态优良，龙头潜力足。"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "count": 100,
+          "avgCost": 335.17,
+          "currentPrice": 335.17,
+          "profitRate": 0.0,
+          "dailyChangePct": 5.37,
+          "reason": "热点标的，涨幅超5%，量价齐升，资金关注度高，具备爆发力。"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "count": 200,
+          "avgCost": 59.11,
+          "currentPrice": 59.11,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.5,
+          "reason": "热点标的，涨幅超6%，量价配合良好，短期动能强劲。"
+        }
+      ],
+      "transactions": [
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "amount": 8100,
+          "direction": "buy",
+          "price": 117.12,
+          "time": "03:30",
+          "logic": "唯一大幅上涨热点股，放量突破，技术形态优良，龙头潜力足。"
+        },
+        {
+          "name": "天孚通信",
+          "code": "300394.SZ",
+          "amount": 100,
+          "direction": "buy",
+          "price": 335.17,
+          "time": "03:30",
+          "logic": "热点标的，涨幅超5%，量价齐升，资金关注度高，具备爆发力。"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "amount": 200,
+          "direction": "buy",
+          "price": 59.11,
+          "time": "03:30",
+          "logic": "热点标的，涨幅超6%，量价配合良好，短期动能强劲。"
+        }
+      ],
+      "strategy_type": "LeadingDragon"
+    }
+  },
+  "common_data": {
+    "timestamp": "2026-03-26 03:31:42"
+  }
+}

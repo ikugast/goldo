@@ -2,9 +2,10 @@
   "models": {
     "Model A": {
       "net_value_curve": [
-        1.0
+        1.0,
+        0.989813
       ],
-      "cash": 427987.0,
+      "cash": 300526.0,
       "initial_cash": 1000000.0,
       "holdings": [
         {
@@ -12,9 +13,9 @@
           "code": "001389.SZ",
           "count": 1700,
           "avgCost": 117.12,
-          "currentPrice": 117.12,
-          "profitRate": 0.0,
-          "dailyChangePct": 10.0,
+          "currentPrice": 114.34,
+          "profitRate": -2.37,
+          "dailyChangePct": 7.39,
           "reason": "大幅上涨突破前期价位，属热点标的，动量强劲"
         },
         {
@@ -22,9 +23,9 @@
           "code": "300757.SZ",
           "count": 400,
           "avgCost": 387.13,
-          "currentPrice": 387.13,
-          "profitRate": 0.0,
-          "dailyChangePct": 6.0,
+          "currentPrice": 381.52,
+          "profitRate": -1.45,
+          "dailyChangePct": 4.46,
           "reason": "放量上行，热点标的，趋势明确向好"
         },
         {
@@ -32,9 +33,9 @@
           "code": "300394.SZ",
           "count": 300,
           "avgCost": 335.17,
-          "currentPrice": 335.17,
-          "profitRate": 0.0,
-          "dailyChangePct": 5.37,
+          "currentPrice": 325.3,
+          "profitRate": -2.94,
+          "dailyChangePct": 2.26,
           "reason": "突破前高，动量充足，热点标的上行确定性高"
         },
         {
@@ -42,9 +43,9 @@
           "code": "688143.SH",
           "count": 1300,
           "avgCost": 59.11,
-          "currentPrice": 59.11,
-          "profitRate": 0.0,
-          "dailyChangePct": 6.5,
+          "currentPrice": 59.25,
+          "profitRate": 0.24,
+          "dailyChangePct": 6.76,
           "reason": "价量齐升，热点标的，短期上行趋势明确"
         },
         {
@@ -52,10 +53,50 @@
           "code": "300750.SZ",
           "count": 100,
           "avgCost": 406.63,
-          "currentPrice": 406.63,
-          "profitRate": 0.0,
-          "dailyChangePct": 2.22,
+          "currentPrice": 402.25,
+          "profitRate": -1.08,
+          "dailyChangePct": 1.12,
           "reason": "价格突破近期价位，龙头标的上行趋势明确"
+        },
+        {
+          "name": "中国长城",
+          "code": "000066.SZ",
+          "count": 1300,
+          "avgCost": 15.45,
+          "currentPrice": 15.45,
+          "profitRate": 0.0,
+          "dailyChangePct": 2.45,
+          "reason": "低位反弹动量增强，估值合理"
+        },
+        {
+          "name": "海博思创",
+          "code": "688411.SH",
+          "count": 200,
+          "avgCost": 290.63,
+          "currentPrice": 290.63,
+          "profitRate": 0.0,
+          "dailyChangePct": 3.72,
+          "reason": "突破前期平台，涨幅居前动量强"
+        },
+        {
+          "name": "唯科科技",
+          "code": "301196.SZ",
+          "count": 200,
+          "avgCost": 113.53,
+          "currentPrice": 113.53,
+          "profitRate": 0.0,
+          "dailyChangePct": 3.06,
+          "reason": "站稳均线，短期趋势向上"
+        },
+        {
+          "name": "长飞光纤",
+          "code": "601869.SH",
+          "count": 100,
+          "avgCost": 265.44,
+          "currentPrice": 265.44,
+          "profitRate": 0.0,
+          "dailyChangePct": 3.43,
+          "reason": "放量上涨突破压力位，趋势向好"
         }
       ],
       "transactions": [
@@ -65,7 +106,7 @@
           "amount": 1700,
           "direction": "buy",
           "price": 117.12,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "大幅上涨突破前期价位，属热点标的，动量强劲"
         },
         {
@@ -74,7 +115,7 @@
           "amount": 400,
           "direction": "buy",
           "price": 387.13,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "放量上行，热点标的，趋势明确向好"
         },
         {
@@ -83,7 +124,7 @@
           "amount": 300,
           "direction": "buy",
           "price": 335.17,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "突破前高，动量充足，热点标的上行确定性高"
         },
         {
@@ -92,7 +133,7 @@
           "amount": 1300,
           "direction": "buy",
           "price": 59.11,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价量齐升，热点标的，短期上行趋势明确"
         },
         {
@@ -101,17 +142,54 @@
           "amount": 100,
           "direction": "buy",
           "price": 406.63,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价格突破近期价位，龙头标的上行趋势明确"
+        },
+        {
+          "name": "中国长城",
+          "code": "000066.SZ",
+          "amount": 1300,
+          "direction": "buy",
+          "price": 15.45,
+          "time": "14:23",
+          "logic": "低位反弹动量增强，估值合理"
+        },
+        {
+          "name": "海博思创",
+          "code": "688411.SH",
+          "amount": 200,
+          "direction": "buy",
+          "price": 290.63,
+          "time": "14:23",
+          "logic": "突破前期平台，涨幅居前动量强"
+        },
+        {
+          "name": "唯科科技",
+          "code": "301196.SZ",
+          "amount": 200,
+          "direction": "buy",
+          "price": 113.53,
+          "time": "14:23",
+          "logic": "站稳均线，短期趋势向上"
+        },
+        {
+          "name": "长飞光纤",
+          "code": "601869.SH",
+          "amount": 100,
+          "direction": "buy",
+          "price": 265.44,
+          "time": "14:23",
+          "logic": "放量上涨突破压力位，趋势向好"
         }
       ],
       "strategy_type": "TechnicalFlow"
     },
     "Model B": {
       "net_value_curve": [
-        1.0
+        1.0,
+        0.99483
       ],
-      "cash": 599594.0,
+      "cash": 336028.0,
       "initial_cash": 1000000.0,
       "holdings": [
         {
@@ -119,9 +197,9 @@
           "code": "688411.SH",
           "count": 400,
           "avgCost": 290.15,
-          "currentPrice": 290.15,
-          "profitRate": 0.0,
-          "dailyChangePct": 3.55,
+          "currentPrice": 290.63,
+          "profitRate": 0.17,
+          "dailyChangePct": 3.72,
           "reason": "价格突破前高，动量增强，技术形态显示强劲上涨趋势。"
         },
         {
@@ -129,9 +207,9 @@
           "code": "300750.SZ",
           "count": 200,
           "avgCost": 406.63,
-          "currentPrice": 406.63,
-          "profitRate": 0.0,
-          "dailyChangePct": 2.22,
+          "currentPrice": 402.25,
+          "profitRate": -1.08,
+          "dailyChangePct": 1.12,
           "reason": "价格突破前高，动量显著增强，技术形态良好，趋势明确。"
         },
         {
@@ -139,9 +217,9 @@
           "code": "300394.SZ",
           "count": 200,
           "avgCost": 335.17,
-          "currentPrice": 335.17,
-          "profitRate": 0.0,
-          "dailyChangePct": 5.37,
+          "currentPrice": 325.3,
+          "profitRate": -2.94,
+          "dailyChangePct": 2.26,
           "reason": "价格突破前高，动量增强，且为市场热点标的，趋势强劲。"
         },
         {
@@ -149,9 +227,9 @@
           "code": "300757.SZ",
           "count": 200,
           "avgCost": 387.13,
-          "currentPrice": 387.13,
-          "profitRate": 0.0,
-          "dailyChangePct": 6.0,
+          "currentPrice": 381.52,
+          "profitRate": -1.45,
+          "dailyChangePct": 4.46,
           "reason": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
         },
         {
@@ -159,10 +237,80 @@
           "code": "001389.SZ",
           "count": 500,
           "avgCost": 117.12,
-          "currentPrice": 117.12,
-          "profitRate": 0.0,
-          "dailyChangePct": 10.0,
+          "currentPrice": 114.34,
+          "profitRate": -2.37,
+          "dailyChangePct": 7.39,
           "reason": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "count": 1500,
+          "avgCost": 59.25,
+          "currentPrice": 59.25,
+          "profitRate": 0.0,
+          "dailyChangePct": 6.76,
+          "reason": "价格突破前期高点，动量增强，技术形态优良且为市场热点标的。"
+        },
+        {
+          "name": "中国长城",
+          "code": "000066.SZ",
+          "count": 3300,
+          "avgCost": 15.45,
+          "currentPrice": 15.45,
+          "profitRate": 0.0,
+          "dailyChangePct": 2.45,
+          "reason": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+        },
+        {
+          "name": "伊戈尔",
+          "code": "002922.SZ",
+          "count": 900,
+          "avgCost": 37.33,
+          "currentPrice": 37.33,
+          "profitRate": 0.0,
+          "dailyChangePct": 0.78,
+          "reason": "价格小幅上涨，突破前期高点，动量增强，技术形态向好。"
+        },
+        {
+          "name": "浙江荣泰",
+          "code": "603119.SH",
+          "count": 400,
+          "avgCost": 74.41,
+          "currentPrice": 74.41,
+          "profitRate": 0.0,
+          "dailyChangePct": 0.77,
+          "reason": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+        },
+        {
+          "name": "唯科科技",
+          "code": "301196.SZ",
+          "count": 200,
+          "avgCost": 113.53,
+          "currentPrice": 113.53,
+          "profitRate": 0.0,
+          "dailyChangePct": 3.06,
+          "reason": "价格突破前期高点，动量增强，技术形态优良。"
+        },
+        {
+          "name": "安克创新",
+          "code": "300866.SZ",
+          "count": 100,
+          "avgCost": 110.95,
+          "currentPrice": 110.95,
+          "profitRate": 0.0,
+          "dailyChangePct": 0.7,
+          "reason": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+        },
+        {
+          "name": "长飞光纤",
+          "code": "601869.SH",
+          "count": 100,
+          "avgCost": 265.44,
+          "currentPrice": 265.44,
+          "profitRate": 0.0,
+          "dailyChangePct": 3.43,
+          "reason": "价格突破前期高点，动量强劲，技术形态优良。"
         }
       ],
       "transactions": [
@@ -172,7 +320,7 @@
           "amount": 400,
           "direction": "buy",
           "price": 290.15,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价格突破前高，动量增强，技术形态显示强劲上涨趋势。"
         },
         {
@@ -181,7 +329,7 @@
           "amount": 200,
           "direction": "buy",
           "price": 406.63,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价格突破前高，动量显著增强，技术形态良好，趋势明确。"
         },
         {
@@ -190,7 +338,7 @@
           "amount": 200,
           "direction": "buy",
           "price": 335.17,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价格突破前高，动量增强，且为市场热点标的，趋势强劲。"
         },
         {
@@ -199,7 +347,7 @@
           "amount": 200,
           "direction": "buy",
           "price": 387.13,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
         },
         {
@@ -208,57 +356,121 @@
           "amount": 500,
           "direction": "buy",
           "price": 117.12,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "amount": 1500,
+          "direction": "buy",
+          "price": 59.25,
+          "time": "14:23",
+          "logic": "价格突破前期高点，动量增强，技术形态优良且为市场热点标的。"
+        },
+        {
+          "name": "中国长城",
+          "code": "000066.SZ",
+          "amount": 3300,
+          "direction": "buy",
+          "price": 15.45,
+          "time": "14:23",
+          "logic": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+        },
+        {
+          "name": "伊戈尔",
+          "code": "002922.SZ",
+          "amount": 900,
+          "direction": "buy",
+          "price": 37.33,
+          "time": "14:23",
+          "logic": "价格小幅上涨，突破前期高点，动量增强，技术形态向好。"
+        },
+        {
+          "name": "浙江荣泰",
+          "code": "603119.SH",
+          "amount": 400,
+          "direction": "buy",
+          "price": 74.41,
+          "time": "14:23",
+          "logic": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+        },
+        {
+          "name": "唯科科技",
+          "code": "301196.SZ",
+          "amount": 200,
+          "direction": "buy",
+          "price": 113.53,
+          "time": "14:23",
+          "logic": "价格突破前期高点，动量增强，技术形态优良。"
+        },
+        {
+          "name": "安克创新",
+          "code": "300866.SZ",
+          "amount": 100,
+          "direction": "buy",
+          "price": 110.95,
+          "time": "14:23",
+          "logic": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+        },
+        {
+          "name": "长飞光纤",
+          "code": "601869.SH",
+          "amount": 100,
+          "direction": "buy",
+          "price": 265.44,
+          "time": "14:23",
+          "logic": "价格突破前期高点，动量强劲，技术形态优良。"
         }
       ],
       "strategy_type": "TechnicalFlow"
     },
     "Model C": {
       "net_value_curve": [
-        1.0
+        1.0,
+        0.988102
       ],
-      "cash": 357560.0,
+      "cash": 135322.0,
       "initial_cash": 1000000.0,
       "holdings": [
         {
           "name": "广合科技",
           "code": "001389.SZ",
-          "count": 3400,
-          "avgCost": 117.12,
-          "currentPrice": 117.12,
-          "profitRate": 0.0,
-          "dailyChangePct": 10.0,
-          "reason": "热点标的，涨幅超10%，强势异动，短线爆发力强"
+          "count": 4100,
+          "avgCost": 116.64536585365853,
+          "currentPrice": 114.34,
+          "profitRate": -1.98,
+          "dailyChangePct": 7.39,
+          "reason": "热点次新龙头，日内涨幅强劲，加仓摊薄成本"
         },
         {
           "name": "罗博特科",
           "code": "300757.SZ",
           "count": 300,
           "avgCost": 387.13,
-          "currentPrice": 387.13,
-          "profitRate": 0.0,
-          "dailyChangePct": 6.0,
+          "currentPrice": 381.52,
+          "profitRate": -1.45,
+          "dailyChangePct": 4.46,
           "reason": "热点标的，涨幅近6%，量价配合良好，走势强劲"
         },
         {
           "name": "长盈通",
           "code": "688143.SH",
-          "count": 1600,
-          "avgCost": 59.11,
-          "currentPrice": 59.11,
-          "profitRate": 0.0,
-          "dailyChangePct": 6.5,
-          "reason": "科创热点标的，涨幅超6%，承接有力，上行空间大"
+          "count": 4000,
+          "avgCost": 59.194,
+          "currentPrice": 59.25,
+          "profitRate": 0.09,
+          "dailyChangePct": 6.76,
+          "reason": "热点龙头，上涨趋势明确，资金认可度高，加仓"
         },
         {
           "name": "天孚通信",
           "code": "300394.SZ",
           "count": 100,
           "avgCost": 335.17,
-          "currentPrice": 335.17,
-          "profitRate": 0.0,
-          "dailyChangePct": 5.37,
+          "currentPrice": 325.3,
+          "profitRate": -2.94,
+          "dailyChangePct": 2.26,
           "reason": "热点标的，涨幅超5%，走势坚挺，适合短线布局"
         }
       ],
@@ -269,7 +481,7 @@
           "amount": 3400,
           "direction": "buy",
           "price": 117.12,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "热点标的，涨幅超10%，强势异动，短线爆发力强"
         },
         {
@@ -278,7 +490,7 @@
           "amount": 300,
           "direction": "buy",
           "price": 387.13,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "热点标的，涨幅近6%，量价配合良好，走势强劲"
         },
         {
@@ -287,7 +499,7 @@
           "amount": 1600,
           "direction": "buy",
           "price": 59.11,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "科创热点标的，涨幅超6%，承接有力，上行空间大"
         },
         {
@@ -296,15 +508,34 @@
           "amount": 100,
           "direction": "buy",
           "price": 335.17,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "热点标的，涨幅超5%，走势坚挺，适合短线布局"
+        },
+        {
+          "name": "长盈通",
+          "code": "688143.SH",
+          "amount": 2400,
+          "direction": "buy",
+          "price": 59.25,
+          "time": "14:23",
+          "logic": "热点龙头，上涨趋势明确，资金认可度高，加仓"
+        },
+        {
+          "name": "广合科技",
+          "code": "001389.SZ",
+          "amount": 700,
+          "direction": "buy",
+          "price": 114.34,
+          "time": "14:23",
+          "logic": "热点次新龙头，日内涨幅强劲，加仓摊薄成本"
         }
       ],
       "strategy_type": "LeadingDragon"
     },
     "Model D": {
       "net_value_curve": [
-        1.0
+        1.0,
+        0.976523
       ],
       "cash": 5989.0,
       "initial_cash": 1000000.0,
@@ -314,9 +545,9 @@
           "code": "001389.SZ",
           "count": 8100,
           "avgCost": 117.12,
-          "currentPrice": 117.12,
-          "profitRate": 0.0,
-          "dailyChangePct": 10.0,
+          "currentPrice": 114.34,
+          "profitRate": -2.37,
+          "dailyChangePct": 7.39,
           "reason": "唯一大幅上涨热点股，放量突破，技术形态优良，龙头潜力足。"
         },
         {
@@ -324,9 +555,9 @@
           "code": "300394.SZ",
           "count": 100,
           "avgCost": 335.17,
-          "currentPrice": 335.17,
-          "profitRate": 0.0,
-          "dailyChangePct": 5.37,
+          "currentPrice": 325.3,
+          "profitRate": -2.94,
+          "dailyChangePct": 2.26,
           "reason": "热点标的，涨幅超5%，量价齐升，资金关注度高，具备爆发力。"
         },
         {
@@ -334,9 +565,9 @@
           "code": "688143.SH",
           "count": 200,
           "avgCost": 59.11,
-          "currentPrice": 59.11,
-          "profitRate": 0.0,
-          "dailyChangePct": 6.5,
+          "currentPrice": 59.25,
+          "profitRate": 0.24,
+          "dailyChangePct": 6.76,
           "reason": "热点标的，涨幅超6%，量价配合良好，短期动能强劲。"
         }
       ],
@@ -347,7 +578,7 @@
           "amount": 8100,
           "direction": "buy",
           "price": 117.12,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "唯一大幅上涨热点股，放量突破，技术形态优良，龙头潜力足。"
         },
         {
@@ -356,7 +587,7 @@
           "amount": 100,
           "direction": "buy",
           "price": 335.17,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "热点标的，涨幅超5%，量价齐升，资金关注度高，具备爆发力。"
         },
         {
@@ -365,7 +596,7 @@
           "amount": 200,
           "direction": "buy",
           "price": 59.11,
-          "time": "11:30",
+          "time": "03:30",
           "logic": "热点标的，涨幅超6%，量价配合良好，短期动能强劲。"
         }
       ],
@@ -373,6 +604,6 @@
     }
   },
   "common_data": {
-    "timestamp": "2026-03-26 11:31:42"
+    "timestamp": "2026-03-26 14:26:45"
   }
 }

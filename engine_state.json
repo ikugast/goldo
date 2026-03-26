@@ -2,8 +2,8 @@
   "simulator": {
     "accounts": {
       "Model A": {
-        "cash": 427987.0,
-        "net_value": 1000000.0,
+        "cash": 300526.0,
+        "net_value": 989813.0,
         "positions": {
           "001389.SZ": {
             "code": "001389.SZ",
@@ -34,6 +34,30 @@
             "volume": 100,
             "available_volume": 0,
             "cost_price": 406.63
+          },
+          "000066.SZ": {
+            "code": "000066.SZ",
+            "volume": 1300,
+            "available_volume": 0,
+            "cost_price": 15.45
+          },
+          "688411.SH": {
+            "code": "688411.SH",
+            "volume": 200,
+            "available_volume": 0,
+            "cost_price": 290.63
+          },
+          "301196.SZ": {
+            "code": "301196.SZ",
+            "volume": 200,
+            "available_volume": 0,
+            "cost_price": 113.53
+          },
+          "601869.SH": {
+            "code": "601869.SH",
+            "volume": 100,
+            "available_volume": 0,
+            "cost_price": 265.44
           }
         },
         "orders": [
@@ -76,15 +100,48 @@
             "price": 406.63,
             "time": "2026-03-26 03:30:22",
             "logic": "价格突破近期价位，龙头标的上行趋势明确"
+          },
+          {
+            "code": "000066.SZ",
+            "volume": 1300,
+            "direction": "BUY",
+            "price": 15.45,
+            "time": "2026-03-26 14:23:04",
+            "logic": "低位反弹动量增强，估值合理"
+          },
+          {
+            "code": "688411.SH",
+            "volume": 200,
+            "direction": "BUY",
+            "price": 290.63,
+            "time": "2026-03-26 14:23:04",
+            "logic": "突破前期平台，涨幅居前动量强"
+          },
+          {
+            "code": "301196.SZ",
+            "volume": 200,
+            "direction": "BUY",
+            "price": 113.53,
+            "time": "2026-03-26 14:23:04",
+            "logic": "站稳均线，短期趋势向上"
+          },
+          {
+            "code": "601869.SH",
+            "volume": 100,
+            "direction": "BUY",
+            "price": 265.44,
+            "time": "2026-03-26 14:23:04",
+            "logic": "放量上涨突破压力位，趋势向好"
           }
         ],
         "history": [
-          1000000.0
+          1000000.0,
+          989813.0
         ]
       },
       "Model B": {
-        "cash": 599594.0,
-        "net_value": 1000000.0,
+        "cash": 336028.0,
+        "net_value": 994830.0,
         "positions": {
           "688411.SH": {
             "code": "688411.SH",
@@ -115,6 +172,48 @@
             "volume": 500,
             "available_volume": 0,
             "cost_price": 117.12
+          },
+          "688143.SH": {
+            "code": "688143.SH",
+            "volume": 1500,
+            "available_volume": 0,
+            "cost_price": 59.25
+          },
+          "000066.SZ": {
+            "code": "000066.SZ",
+            "volume": 3300,
+            "available_volume": 0,
+            "cost_price": 15.45
+          },
+          "002922.SZ": {
+            "code": "002922.SZ",
+            "volume": 900,
+            "available_volume": 0,
+            "cost_price": 37.33
+          },
+          "603119.SH": {
+            "code": "603119.SH",
+            "volume": 400,
+            "available_volume": 0,
+            "cost_price": 74.41
+          },
+          "301196.SZ": {
+            "code": "301196.SZ",
+            "volume": 200,
+            "available_volume": 0,
+            "cost_price": 113.53
+          },
+          "300866.SZ": {
+            "code": "300866.SZ",
+            "volume": 100,
+            "available_volume": 0,
+            "cost_price": 110.95
+          },
+          "601869.SH": {
+            "code": "601869.SH",
+            "volume": 100,
+            "available_volume": 0,
+            "cost_price": 265.44
           }
         },
         "orders": [
@@ -157,21 +256,78 @@
             "price": 117.12,
             "time": "2026-03-26 03:30:22",
             "logic": "价格强势突破前高，动量极强，且为市场热点，趋势明确。"
+          },
+          {
+            "code": "688143.SH",
+            "volume": 1500,
+            "direction": "BUY",
+            "price": 59.25,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格突破前期高点，动量增强，技术形态优良且为市场热点标的。"
+          },
+          {
+            "code": "000066.SZ",
+            "volume": 3300,
+            "direction": "BUY",
+            "price": 15.45,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+          },
+          {
+            "code": "002922.SZ",
+            "volume": 900,
+            "direction": "BUY",
+            "price": 37.33,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格小幅上涨，突破前期高点，动量增强，技术形态向好。"
+          },
+          {
+            "code": "603119.SH",
+            "volume": 400,
+            "direction": "BUY",
+            "price": 74.41,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+          },
+          {
+            "code": "301196.SZ",
+            "volume": 200,
+            "direction": "BUY",
+            "price": 113.53,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格突破前期高点，动量增强，技术形态优良。"
+          },
+          {
+            "code": "300866.SZ",
+            "volume": 100,
+            "direction": "BUY",
+            "price": 110.95,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格突破前期高点，动量转强，技术形态出现买入信号。"
+          },
+          {
+            "code": "601869.SH",
+            "volume": 100,
+            "direction": "BUY",
+            "price": 265.44,
+            "time": "2026-03-26 14:23:04",
+            "logic": "价格突破前期高点，动量强劲，技术形态优良。"
           }
         ],
         "history": [
-          1000000.0
+          1000000.0,
+          994830.0
         ]
       },
       "Model C": {
-        "cash": 357560.0,
-        "net_value": 1000000.0,
+        "cash": 135322.0,
+        "net_value": 988102.0,
         "positions": {
           "001389.SZ": {
             "code": "001389.SZ",
-            "volume": 3400,
+            "volume": 4100,
             "available_volume": 0,
-            "cost_price": 117.12
+            "cost_price": 116.64536585365853
           },
           "300757.SZ": {
             "code": "300757.SZ",
@@ -181,9 +337,9 @@
           },
           "688143.SH": {
             "code": "688143.SH",
-            "volume": 1600,
+            "volume": 4000,
             "available_volume": 0,
-            "cost_price": 59.11
+            "cost_price": 59.194
           },
           "300394.SZ": {
             "code": "300394.SZ",
@@ -224,15 +380,32 @@
             "price": 335.17,
             "time": "2026-03-26 03:30:22",
             "logic": "热点标的，涨幅超5%，走势坚挺，适合短线布局"
+          },
+          {
+            "code": "688143.SH",
+            "volume": 2400,
+            "direction": "BUY",
+            "price": 59.25,
+            "time": "2026-03-26 14:23:04",
+            "logic": "热点龙头，上涨趋势明确，资金认可度高，加仓"
+          },
+          {
+            "code": "001389.SZ",
+            "volume": 700,
+            "direction": "BUY",
+            "price": 114.34,
+            "time": "2026-03-26 14:23:04",
+            "logic": "热点次新龙头，日内涨幅强劲，加仓摊薄成本"
           }
         ],
         "history": [
-          1000000.0
+          1000000.0,
+          988102.0
         ]
       },
       "Model D": {
         "cash": 5989.0,
-        "net_value": 1000000.0,
+        "net_value": 976523.0,
         "positions": {
           "001389.SZ": {
             "code": "001389.SZ",
@@ -280,11 +453,12 @@
           }
         ],
         "history": [
-          1000000.0
+          1000000.0,
+          976523.0
         ]
       }
     },
     "current_time": "2026-03-26 03:29:12"
   },
-  "updated_at": "2026-03-26 03:31:42"
+  "updated_at": "2026-03-26 14:26:45"
 }

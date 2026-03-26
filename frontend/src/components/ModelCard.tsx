@@ -48,6 +48,7 @@ const ModelCard: React.FC<ModelCardProps> = ({
 
   // 实时行情 state
   const [realQuotes, setRealQuotes] = useState<Record<string, RealQuote>>({});
+  const [isRefreshing, setIsRefreshing] = useState(false);
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null);
 
   // 计算最新市值
@@ -64,9 +65,11 @@ const ModelCard: React.FC<ModelCardProps> = ({
     : cumulativeReturn;
   const isPositive = displayReturn >= 0;
 
-  // 直接在前端通过东财接口拉取实时行情，不再依赖自建代理
+  // 直接在前端通过东财接口拉取实时行情
   const fetchRealQuotes = async () => {
     if (!holdings || holdings.length === 0) return;
+    
+    setIsRefreshing(true); // 开始旋转动画
     
     // 构建东财所需的 secids
     const secids = holdings.map(h => {
@@ -86,13 +89,10 @@ const ModelCard: React.FC<ModelCardProps> = ({
         const newQuotes: Record<string, RealQuote> = {};
         
         dataList.forEach((item: any) => {
-          // 将行情数据匹配回我们自己的持仓标的
           const matchedHolding = holdings.find(h => h.code.startsWith(item.f12));
           if (matchedHolding) {
             newQuotes[matchedHolding.code] = {
-              // f2 为价格(需除以100)，如果停牌是 '-' 则沿用老价格
               price: typeof item.f2 === 'number' ? item.f2 / 100 : matchedHolding.currentPrice,
-              // f3 为涨跌幅(需除以100)
               change_pct: typeof item.f3 === 'number' ? item.f3 / 100 : 0,
               name: item.f14 || matchedHolding.name
             };
@@ -103,13 +103,16 @@ const ModelCard: React.FC<ModelCardProps> = ({
       }
     } catch (_) {
       // 忽略请求错误，避免刷屏
+    } finally {
+      // 延迟一下结束动画，让用户能感知到刷新动作
+      setTimeout(() => setIsRefreshing(false), 500);
     }
   };
 
   useEffect(() => {
     fetchRealQuotes();
-    // 之前写的是 3600000 (一小时)，现在改成 300000 (每 5 分钟刷新一次)
-    intervalRef.current = setInterval(fetchRealQuotes, 300000);
+    // 60000 毫秒 (1分钟) 自动刷新
+    intervalRef.current = setInterval(fetchRealQuotes, 60000);
     return () => {
       if (intervalRef.current) clearInterval(intervalRef.current);
     };
@@ -117,8 +120,27 @@ const ModelCard: React.FC<ModelCardProps> = ({
 
   return (
     <div className="bg-white rounded-[24px] p-6 shadow-sm border border-gray-50 mb-8">
-      {/* Model Name */}
-      <h3 className="text-lg sm:text-[28px] font-bold text-gray-900 mb-8">{modelName}</h3>
+      {/* Model Name & Manual Refresh Button */}
+      <div className="flex justify-between items-center mb-8">
+        <h3 className="text-lg sm:text-[28px] font-bold text-gray-900">{modelName}</h3>
+        
+        {/* 手动刷新按钮 */}
+        <button 
+          onClick={fetchRealQuotes}
+          disabled={isRefreshing}
+          className="flex items-center space-x-1 px-3 py-1.5 bg-gray-50 hover:bg-gray-100 rounded-full transition-colors text-gray-500 text-xs font-medium focus:outline-none"
+        >
+          <svg 
+            className={`w-3.5 h-3.5 ${isRefreshing ? 'animate-spin text-blue-500' : ''}`} 
+            fill="none" 
+            stroke="currentColor" 
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+          <span>{isRefreshing ? '更新中' : '刷新行情'}</span>
+        </button>
+      </div>
 
       {/* Stats Grid - 4 Blocks */}
       <div className="grid grid-cols-2 gap-4 mb-8">

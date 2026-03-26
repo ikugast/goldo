@@ -9,16 +9,24 @@ import {
   ResponsiveContainer,
   Legend
 } from 'recharts';
-
 interface MasterChartProps {
   data: any[];
 }
-
 const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
-  const startLabel = data.length > 0 ? data[0].name : '3/25';
-  const endLabel = data.length > 0 ? data[data.length - 1].name : '3/25';
+  const startLabel = data.length > 0 ? data[0].name : '3/24';
+  const endLabel = data.length > 0 ? data[data.length - 1].name : '--';
   const year = '2026';
-
+  // 只显示最后一个日期刻度
+  const xTicks = data.length > 0 ? [data[data.length - 1].name] : undefined;
+  const formatYAxisTick = (value: number) => {
+    // 按需求对特定刻度做“显示值重映射”
+    if (Math.abs(value - 0.95) < 1e-6) return '0.5';
+    if (Math.abs(value - 1.05) < 1e-6) return '1.25';
+    if (Math.abs(value - 1.1) < 1e-6) return '1.5';
+    // 其他刻度保持原样（去掉多余小数）
+    const s = value.toString();
+    return s;
+  };
   return (
     <div className="quant-card p-6 h-[300px] sm:h-[400px] md:h-[500px]">
       <div className="flex justify-between items-center mb-6">
@@ -35,6 +43,8 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             axisLine={false} 
             tickLine={false} 
             tick={{ fontSize: 10, fill: '#A0A4A8' }}
+            reversed
+            ticks={xTicks}
             padding={{ left: 0, right: 0 }}
           />
           <YAxis 
@@ -42,6 +52,8 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
             tickLine={false} 
             tick={{ fontSize: 10, fill: '#A0A4A8' }}
             domain={[0.9, (dataMax: number) => Math.max(1.1, dataMax * 1.1)]}
+            ticks={[0.95, 1, 1.05, 1.1]}
+            tickFormatter={formatYAxisTick}
           />
           <Tooltip 
             contentStyle={{ 
@@ -55,7 +67,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelA" 
-            name="seed 2.0（技术流）" 
+            name="seed 2.0" 
             stroke="#8A4FFF" 
             strokeWidth={3} 
             dot={false} 
@@ -64,7 +76,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelB" 
-            name="dpsk 3.2（技术流）" 
+            name="dpsk 3.2" 
             stroke="#FF4D4F" 
             strokeWidth={3} 
             dot={false} 
@@ -73,7 +85,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelC" 
-            name="seed 2.0（龙头战法）" 
+            name="seed 2.0" 
             stroke="#00B894" 
             strokeWidth={3} 
             dot={false} 
@@ -82,7 +94,7 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
           <Line 
             type="monotone" 
             dataKey="modelD" 
-            name="dpsk 3.2（龙头战法）" 
+            name="dpsk 3.2" 
             stroke="#1890FF" 
             strokeWidth={3} 
             dot={false} 
@@ -93,5 +105,4 @@ const MasterChart: React.FC<MasterChartProps> = ({ data }) => {
     </div>
   );
 };
-
 export default MasterChart;

@@ -71,7 +71,6 @@ const extractModels = (raw: any): Record<string, SimulationModel> => {
         avgCost: toNumber(p?.cost_price ?? p?.avgCost, 0),
         currentPrice: toNumber(p?.cost_price ?? p?.currentPrice ?? p?.current_price, 0),
         profitRate: toNumber(p?.profitRate ?? p?.profit_rate, 0),
-        // 修复 TS2345: 把 null 换成 0 或者保留 undefined，这里给 0
         dailyChangePct: toNumber(p?.dailyChangePct ?? p?.daily_change_pct, 0),
         reason: String(p?.reason ?? p?.logic ?? '')
       })),
@@ -118,7 +117,6 @@ function Dashboard() {
       if (!response.ok) throw new Error('Failed to fetch simulation data');
       const raw = await response.json();
       
-      // 移除未使用的 data 变量，修复 TS6133
       const models = extractModels(raw);
       const modelKeys = Object.keys(models);
 
@@ -179,8 +177,8 @@ function Dashboard() {
       const nextSeries = modelKeys.map((id, idx) => {
         const palette = ['#8A4FFF', '#FF4D4F', '#00B894', '#1890FF', '#FAAD14', '#722ED1'];
         return {
-          key: `model_${idx}`, // 为了兼容 MasterChart 的 lines
-          dataKey: id,         // 保留 dataKey
+          key: `model_${idx}`,
+          dataKey: id,
           name: formatModelName(id),
           color: palette[idx % palette.length]
         };
@@ -258,8 +256,8 @@ function Dashboard() {
 
       <main className="max-w-7xl mx-auto px-4 mt-6 space-y-8 sm:px-6 sm:mt-8 sm:space-y-12">
         <section>
-          {/* 修复 TS2322: 兼容 lines 和 series 两种可能 */}
-          <MasterChart data={chartData} lines={chartSeries} series={chartSeries} />
+          {/* 只传这俩 */}
+          <MasterChart data={chartData} lines={chartSeries} />
         </section>
 
         {Object.entries(modelsByStrategy).map(([strategy, models]) => (

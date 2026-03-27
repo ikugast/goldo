@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import MasterChart from '../components/MasterChart';
 import ModelCard from '../components/ModelCard';
-import TradeList from '../components/TradeList';
 
 interface Holding {
   code: string;
@@ -161,8 +160,6 @@ export default function Dashboard() {
           />
         ))}
 
-        {/* 4. 最近交易 */}
-        <TradeList trades={allTrades} />
       </div>
     </div>
   );

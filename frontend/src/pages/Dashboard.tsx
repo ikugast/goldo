@@ -107,15 +107,6 @@ export default function Dashboard() {
     return point;
   });
 
-  // 提取所有的交易记录，按照时间倒序排序
-  const allTrades = accounts.flatMap(acc =>
-    (acc.history_transactions || []).map(t => ({
-      ...t,
-      accountName: acc.name,
-      amount: t.amount,
-      price: t.price
-    }))
-  ).sort((a, b) => new Date(b.time).getTime() - new Date(a.time).getTime());
 
   return (
     <div className="min-h-screen bg-[#F8F9FB] pb-24">

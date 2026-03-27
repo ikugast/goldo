@@ -31,7 +31,7 @@ export default function Dashboard() {
 
   const modelMetrics = accounts.map((acc: any) => {
     const safeHoldings = Array.isArray(acc.holdings) ? acc.holdings : [];
-    const totalMarketValue = safeHoldings.reduce((sum, h) => sum + (h.amount * h.current_price), 0);
+    const totalMarketValue = safeHoldings.reduce((sum: any, h: any) => sum + (h.amount * h.current_price), 0);
     const currentTotalAssets = acc.cash + totalMarketValue;
     const cumulativeReturn = ((currentTotalAssets / INITIAL_CASH) - 1) * 100;
     const realNetValue = currentTotalAssets / INITIAL_CASH;

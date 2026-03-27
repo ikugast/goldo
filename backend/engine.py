@@ -10,6 +10,63 @@ from market_data import CORE_STOCK_POOL_98, HOT_SPOT_POOL
 from openai import OpenAI
 from dotenv import load_dotenv
 
+os.environ['TZ'] = 'Asia/Shanghai'
+try:
+    import time
+    time.tzset()
+except AttributeError:
+    pass # Windows 系统不支持 tzset，但我们在 GitHub Actions (Linux) 上运行，会生效
+# ---------------------------------------------
+
+from config import Config
+from simulator import TradingSimulator, Transaction
+
+logger = logging.getLogger(__name__)
+
+class MirrorDecisionEngine:
+    def __init__(self):
+        self.state_file = os.getenv("ENGINE_STATE_FILE", "engine_state.json")
+        self.output_file = os.getenv("SIMULATION_OUTPUT_FILE", "simulation_output.json")
+        self.simulator = TradingSimulator(
+            initial_cash=Config.INITIAL_CASH,
+            tax_rate=Config.TAX_RATE,
+            commission_rate=Config.COMMISSION_RATE,
+            slippage=Config.SLIPPAGE
+        )
+        self.market_data = {}
+        self.decision_history = []
+        self._load_state()
+        self._fix_old_utc_times() # <-- 新增：修复历史遗留的 UTC 时间
+
+    # --- 新增修复方法 ---
+    def _fix_old_utc_times(self):
+        """扫描所有交易记录，把 03:xx 这种明显的 UTC 时间加上 8 小时修回北京时间"""
+        fixed = False
+        for account in self.simulator.accounts.values():
+            for t in account.history_transactions:
+                # 兼容不同格式：可能有 'HH:MM' 也可能有 'YYYY-MM-DD HH:MM:SS'
+                time_str = str(t.time)
+                if len(time_str) >= 5 and ":" in time_str:
+                    try:
+                        # 提取小时
+                        if len(time_str) == 5: # HH:MM
+                            hour = int(time_str[:2])
+                        else: # 取倒数第二段的时间部分
+                            time_part = time_str.split(" ")[-1]
+                            hour = int(time_part.split(":")[0])
+                            
+                        # 如果是在凌晨 1点-7点 的交易，显然是 UTC 记录的 A股交易，+8
+                        if 1 <= hour <= 7:
+                            new_hour = hour + 8
+                            t.time = time_str.replace(f"{hour:02d}:", f"{new_hour:02d}:", 1)
+                            fixed = True
+                    except Exception:
+                        pass
+        if fixed:
+            self.save_state()
+            logger.info("Fixed old UTC timestamps in history to Asia/Shanghai.")
+    # ------------------
+
 def get_ark_client(model_name: str):
     """根据模型名称选择对应的 API Key"""
     load_dotenv()

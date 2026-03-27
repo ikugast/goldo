@@ -15,11 +15,6 @@ interface ModelData {
   initialCash: number;
 }
 
-interface RealtimeMetrics {
-  netValueRatio: number;
-  cumulativeReturn: number;
-  totalMarketValue: number;
-}
 
 interface StrategyZoneProps {
   title: string;

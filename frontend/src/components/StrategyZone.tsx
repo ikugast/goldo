@@ -25,10 +25,9 @@ interface StrategyZoneProps {
   title: string;
   description: string;
   models: ModelData[];
-  onRealtimeUpdate?: (modelId: string, metrics: RealtimeMetrics) => void;
 }
 
-const StrategyZone: React.FC<StrategyZoneProps> = ({ title, description, models, onRealtimeUpdate }) => {
+const StrategyZone: React.FC<StrategyZoneProps> = ({ title, description, models }) => {
   return (
     <div className="space-y-8">
       {/* Zone Header */}

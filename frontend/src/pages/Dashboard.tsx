@@ -52,7 +52,7 @@ export default function Dashboard() {
 
   if (!data) return <div className="p-8 text-center text-gray-500">Loading...</div>;
 
-  const accounts = Object.values(data.accounts);
+  const accounts = Object.values(data.accounts || data.models || {});
 
   // === 核心修复点：强制计算实时净值以对齐图表和卡片 ===
   const modelMetrics = accounts.map(acc => {

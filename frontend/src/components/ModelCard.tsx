@@ -24,8 +24,8 @@ interface ModelCardProps {
   availableCash: number;
   holdingsCount: number;
   holdings: Holding[];
-  recentTrades: Trade[];
-  aiReason: string;
+  recentTrades?: Trade[];
+  aiReason?: string;
 }
 const ModelCard: React.FC<ModelCardProps> = ({
   modelName,

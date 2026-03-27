@@ -31,8 +31,8 @@ export default function Dashboard() {
 
   const modelMetrics = accounts.map((acc: any) => {
     const safeHoldings = Array.isArray(acc.holdings) ? acc.holdings : [];
-    const totalMarketValue = safeHoldings.reduce((sum: any, h: any) => sum + (h.amount * h.current_price), 0);
-    const currentTotalAssets = acc.cash + totalMarketValue;
+    const totalMarketValue = safeHoldings.reduce((sum: any, h: any) => sum + ((h.amount || h.count || 0) * (h.current_price || h.currentPrice || 0)), 0);
+    const currentTotalAssets = (acc.cash || 0) + totalMarketValue;
     const cumulativeReturn = ((currentTotalAssets / INITIAL_CASH) - 1) * 100;
     const realNetValue = currentTotalAssets / INITIAL_CASH;
 
@@ -46,26 +46,27 @@ export default function Dashboard() {
 
   const lines = accounts.map((acc: any, index: number) => ({
     key: `model_${index}`,
-    name: acc.name,
+    name: acc.name || `Model ${index}`,
     color: COLORS[index % COLORS.length],
   }));
 
   const maxDays = Math.max(...accounts.map((a: any) => (a.net_value_curve || []).length));
   const baseDate = new Date('2026-03-25T00:00:00');
   
-  const chartData = Array.from({ length: maxDays }).map((_, i) => {
+  const chartData = Array.from({ length: maxDays > 0 ? maxDays : 1 }).map((_, i) => {
     const d = new Date(baseDate);
     d.setDate(baseDate.getDate() + i);
     const point: any = { date: `${d.getMonth() + 1}/${d.getDate()}` };
     
     modelMetrics.forEach((metric, index) => {
       const curve = metric.acc.net_value_curve || [];
-      const isLastPoint = i === maxDays - 1;
+      const isLastPoint = i === (maxDays > 0 ? maxDays - 1 : 0);
       
       if (isLastPoint) {
-        point[`model_${index}`] = Number(metric.realNetValue.toFixed(4));
+        point[`model_${index}`] = Number.isFinite(metric.realNetValue) ? Number(metric.realNetValue.toFixed(4)) : 1.0;
       } else {
-        point[`model_${index}`] = i < curve.length ? Number(curve[i].toFixed(4)) : 1.0;
+        const val = curve[i];
+        point[`model_${index}`] = (i < curve.length && Number.isFinite(val)) ? Number(val.toFixed(4)) : 1.0;
       }
     });
     return point;
@@ -79,30 +80,32 @@ export default function Dashboard() {
           <p className="text-xs text-gray-500 mt-1">a bet at a time</p>
         </div>
       </div>
-      <div className="p-4 space-y-6">
-        <MasterChart data={chartData} lines={lines} />
-        
-        {modelMetrics.map((metric, i) => (
-          <ModelCard
-            key={i}
-            modelName={metric.acc.name}
-            strategyName="技术趋势"
-            netValue={metric.realNetValue}
-            cumulativeReturn={metric.cumulativeReturn}
-            availableCash={metric.acc.cash}
-            holdingsCount={(metric.acc.holdings || []).length}
-            holdings={(metric.acc.holdings || []).map((h: any) => ({
-              code: h.code,
-              name: h.name,
-              count: h.amount,
-              avgCost: h.average_cost,
-              currentPrice: h.current_price,
-              profitRate: h.profit_rate,
-              dailyChangePct: h.daily_change_pct || 0,
-              reason: "AI决策"
-            }))}
-          />
-        ))}
+
+      <div className="max-w-7xl mx-auto px-4 mt-6">
+        {/* 全局走势图 */}
+        <div className="bg-white rounded-[24px] p-6 shadow-sm border border-gray-50 mb-8">
+          <div className="mb-6">
+            <h2 className="text-lg font-bold text-gray-900">大盘趋势跑赢测试</h2>
+            <p className="text-sm text-gray-500 mt-1">实时追踪各模型净值表现</p>
+          </div>
+          <MasterChart data={chartData} lines={lines} />
+        </div>
+
+        {/* 模型卡片列表 */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {modelMetrics.map((metric, i) => (
+            <ModelCard 
+              key={i}
+              modelName={metric.acc.name || `策略模型 ${i+1}`}
+              strategyName="AI量化"
+              netValue={Number.isFinite(metric.realNetValue) ? metric.realNetValue : 1.0}
+              cumulativeReturn={Number.isFinite(metric.cumulativeReturn) ? metric.cumulativeReturn : 0}
+              availableCash={metric.acc.cash || 0}
+              holdingsCount={Array.isArray(metric.acc.holdings) ? metric.acc.holdings.length : 0}
+              holdings={Array.isArray(metric.acc.holdings) ? metric.acc.holdings : []}
+            />
+          ))}
+        </div>
       </div>
     </div>
   );

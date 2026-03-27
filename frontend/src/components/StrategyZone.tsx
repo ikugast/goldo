@@ -41,7 +41,7 @@ const StrategyZone: React.FC<StrategyZoneProps> = ({ title, description, models,
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-8">
         {models.map((model, idx) =>
           model ? (
-            <ModelCard key={model.id ?? idx} {...model} onRealtimeUpdate={onRealtimeUpdate} />
+            <ModelCard key={model.id ?? idx} {...model} />
           ) : null,
         )}
       </div>

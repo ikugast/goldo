@@ -36,13 +36,6 @@ type SimulationModel = {
   name?: string;
 };
 
-type SimulationOutput = {
-  models?: Record<string, SimulationModel>;
-  common_data?: {
-    trading_dates?: string[];
-  };
-};
-
 const extractModels = (raw: any): Record<string, SimulationModel> => {
   if (isRecord(raw?.models)) return raw.models;
   if (isRecord(raw?.data?.models)) return raw.data.models;
@@ -60,7 +53,6 @@ const extractModels = (raw: any): Record<string, SimulationModel> => {
     const history = asArray<number>((acc as any)?.history || (acc as any)?.net_value_curve);
     const orders = asArray<any>((acc as any)?.orders || (acc as any)?.transactions);
     
-    // 兼容数组形式的 holdings（新版 json）和对象形式的 positions（老版 json）
     let holdingsArray: any[] = [];
     if (Array.isArray((acc as any)?.holdings)) {
       holdingsArray = (acc as any).holdings;
@@ -79,7 +71,8 @@ const extractModels = (raw: any): Record<string, SimulationModel> => {
         avgCost: toNumber(p?.cost_price ?? p?.avgCost, 0),
         currentPrice: toNumber(p?.cost_price ?? p?.currentPrice ?? p?.current_price, 0),
         profitRate: toNumber(p?.profitRate ?? p?.profit_rate, 0),
-        dailyChangePct: toNumber(p?.dailyChangePct ?? p?.daily_change_pct, null),
+        // 修复 TS2345: 把 null 换成 0 或者保留 undefined，这里给 0
+        dailyChangePct: toNumber(p?.dailyChangePct ?? p?.daily_change_pct, 0),
         reason: String(p?.reason ?? p?.logic ?? '')
       })),
       transactions: orders.map((o: any) => ({
@@ -124,8 +117,8 @@ function Dashboard() {
       const response = await fetch(`${DATA_URL}?t=${Date.now()}`);
       if (!response.ok) throw new Error('Failed to fetch simulation data');
       const raw = await response.json();
-      const data: SimulationOutput = raw as any;
-
+      
+      // 移除未使用的 data 变量，修复 TS6133
       const models = extractModels(raw);
       const modelKeys = Object.keys(models);
 
@@ -186,7 +179,8 @@ function Dashboard() {
       const nextSeries = modelKeys.map((id, idx) => {
         const palette = ['#8A4FFF', '#FF4D4F', '#00B894', '#1890FF', '#FAAD14', '#722ED1'];
         return {
-          dataKey: id,
+          key: `model_${idx}`, // 为了兼容 MasterChart 的 lines
+          dataKey: id,         // 保留 dataKey
           name: formatModelName(id),
           color: palette[idx % palette.length]
         };
@@ -199,7 +193,6 @@ function Dashboard() {
         grouped[k].push(m);
       }
 
-      // 为了确保图表展示，强制至少有3天数据
       const baseDate = new Date('2026-03-25T00:00:00');
       const safeCurveLength = curveLength > 0 ? curveLength : 1;
       
@@ -265,7 +258,8 @@ function Dashboard() {
 
       <main className="max-w-7xl mx-auto px-4 mt-6 space-y-8 sm:px-6 sm:mt-8 sm:space-y-12">
         <section>
-          <MasterChart data={chartData} series={chartSeries} />
+          {/* 修复 TS2322: 兼容 lines 和 series 两种可能 */}
+          <MasterChart data={chartData} lines={chartSeries} series={chartSeries} />
         </section>
 
         {Object.entries(modelsByStrategy).map(([strategy, models]) => (

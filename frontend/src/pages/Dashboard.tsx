@@ -36,7 +36,7 @@ export default function Dashboard() {
   const fetchSimulationData = async () => {
     try {
       // 强制添加时间戳避免缓存
-      const response = await fetch(`/simulation_output.json?t=${new Date().getTime()}`);
+      const response = await fetch(`${import.meta.env.BASE_URL}simulation_output.json?t=${new Date().getTime()}`);
       if (response.ok) {
         const json = await response.json();
         setData(json);
